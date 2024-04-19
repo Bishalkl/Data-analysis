@@ -94,6 +94,7 @@ print(g9_pop * 1000000)
 print(g9_pop.mean())
 print(np.log(g9_pop))
 print(g9_pop['France': 'Italy'].mean())
+print(g9_pop)
 
 #Boolean arrays
 
