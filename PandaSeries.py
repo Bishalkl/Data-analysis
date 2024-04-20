@@ -97,6 +97,22 @@ print(g9_pop['France': 'Italy'].mean())
 print(g9_pop)
 
 #Boolean arrays
+#(working in the same way as numpy)
+print(g9_pop)
+print(g9_pop > 80) 
+print(g9_pop[g9_pop > 80])
+print(g7_pop[(g7_pop > 80) | (g7_pop < 40)])
+print(g7_pop[(g7_pop > 80) & (g7_pop < 200)])
+
+#Modifying series
+g7_pop['Canada'] = 40.5
+print(g7_pop)
+g7_pop.iloc[-1] = 500
+print(g7_pop)
+print(g7_pop[g7_pop<70])
+g7_pop[g7_pop < 70] = 99.99
+print(g7_pop)
+
 
 
 
