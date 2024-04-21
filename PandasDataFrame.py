@@ -117,4 +117,75 @@ print(df[['GDP', 'HDI']] + crisis)
 
 #Modifying DataFrames
 
+#Adding a new column
+langs = pd.Series(
+    ['French', 'German', 'Italian'],
+    index=['France', 'Germany', 'Italy'],
+    name= 'Language'
+)
+print(langs)
+df['Language'] = langs
+print(df)
+
+#Replacing values per column
+df['Language'] = 'English'
+print(df)
+
+#Rename
+modified = df.rename(
+    columns={
+        'GDP': 'Gross Domestic Product',
+        'Population': 'Pop'
+    }, index={
+        'United Kingdom': 'UK',
+        'United States': 'US'
+    })
+
+print(modified)
+
+#IF We want to rename the index all by this
+modified = df.rename(index= str.upper)
+print(modified)
+
+#Adding values
+# modified = df.append(pd.Series({
+#     'Population': 3,
+#     'GDP': 5
+# }, name= 'China'))
+# print(modified)
+
+#We can directly set the new index and values to the DataFrame:
+df.loc['China'] = pd.Series({'Population': 1_400_000_000, 'Continent': 'Asia'})
+print(df)
+
+#We can use drop to just remove a row by index
+df.drop('China', inplace=True)
+print(df)
+
+rest = df.reset_index()
+rest = df.set_index('Population')
+print(rest)
+
+#Creating columns from other columns
+print(df[['Population', 'GDP']])
+print(df['GDP'] / df['Population'])
+df['GDP_Per_Capital'] = df['GDP'] / df['Population']
+print(df)
+
+# Statistical Info
+# to get a head part of data
+print(df.head())
+print(df.describe())
+population = df['Population']
+print(population.min(), population.max())
+print(population.sum())
+print(population.sum() / len(population))
+print(population.mean())
+print(population.std())
+print(population.median())
+print(population.describe())
+print(population.quantile(.25))
+print(population.quantile([.2, .4,.5, .8]))
+
+
 
